@@ -10,4 +10,4 @@ RUN  bash -c "cd /opt/OpenFOAM-dev; git am /0001-Fix-build-for-s390x.patch"
 RUN  bash -c "source /opt/OpenFOAM-dev/etc/bashrc; cd /opt/ThirdParty-dev; wmRefresh; ./Allwmake"
 RUN  bash -c "cd /opt/OpenFOAM-dev; source etc/bashrc; wmRefresh; ./Allwmake"
 RUN  echo "source /opt/OpenFOAM-dev/etc/bashrc" >> /etc/bash.bashrc
-RUN  apt install -y jupyter && apt autoclean
+RUN  DEBIAN_FRONTEND=noninteractive apt-get install -y jupyter && apt autoclean
