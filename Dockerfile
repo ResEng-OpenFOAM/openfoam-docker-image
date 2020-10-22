@@ -11,3 +11,6 @@ RUN  bash -c "source /opt/OpenFOAM-dev/etc/bashrc; cd /opt/ThirdParty-dev; wmRef
 RUN  bash -c "cd /opt/OpenFOAM-dev; source etc/bashrc; wmRefresh; ./Allwmake"
 RUN  echo "source /opt/OpenFOAM-dev/etc/bashrc" >> /etc/bash.bashrc
 RUN  DEBIAN_FRONTEND=noninteractive apt-get install -y jupyter && apt autoclean
+RUN  useradd -ms /bin/bash of
+USER of
+WORKDIR /home/of
